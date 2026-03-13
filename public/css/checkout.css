@@ -1,0 +1,61 @@
+/* Page background */
+
+.checkout-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+/* Card */
+
+.checkout-card {
+  width: 420px;
+  padding: 40px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+
+.checkout-title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Total section */
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 15px;
+  background: #f1f5ff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+/* Button */
+
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: #635bff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}

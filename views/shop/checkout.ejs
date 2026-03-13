@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/checkout.css">
+</head>
+
+<body>
+
+<%- include('../includes/navigation.ejs') %>
+
+<main class="checkout-page">
+
+  <div class="checkout-card">
+
+    <h1 class="checkout-title">Checkout</h1>
+
+    <div class="checkout-total">
+      <span>Total Amount</span>
+      <strong>$<%= totalSum %></strong>
+    </div>
+
+    <button id="checkout-button" class="checkout-btn">
+       Pay Now!!
+    </button>
+
+  </div>
+
+</main>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  const stripe = Stripe('<%= stripePublicKey %>');
+
+  document
+    .getElementById('checkout-button')
+    .addEventListener('click', function () {
+      stripe.redirectToCheckout({
+        sessionId: '<%= sessionId %>',
+      });
+    });
+</script>
+
+<%- include('../includes/end.ejs') %>
