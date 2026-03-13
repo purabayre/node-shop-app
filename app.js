@@ -125,6 +125,10 @@ app.use((error, req, res, next) => {
   });
 });
 
+app.get('/test', (req, res) => {
+  res.send('Server is running');
+});
+
 mongoose
   .connect(MONGODB_URI)
   .then((result) => {
