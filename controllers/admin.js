@@ -68,7 +68,9 @@ exports.postAddProduct = async (req, res, next) => {
 
     res.redirect('/admin/products');
   } catch (err) {
-    return next(new Error(err));
+    const error = new Error(err);
+    error.httpStatusCode = 500;
+    return next(error);
   }
 };
 
@@ -94,7 +96,9 @@ exports.getEditProduct = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
 
@@ -157,7 +161,9 @@ exports.postEditProduct = (req, res, next) => {
       res.redirect('/admin/products');
     })
     .catch((err) => {
-      console.log(err);
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
 
@@ -188,7 +194,11 @@ exports.getProducts = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
 exports.deleteProduct = (req, res, next) => {
@@ -206,6 +216,8 @@ exports.deleteProduct = (req, res, next) => {
       res.status(200).json({ message: 'Success!!' });
     })
     .catch((err) => {
-      res.status(500).json({ message: 'Error!!' });
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
