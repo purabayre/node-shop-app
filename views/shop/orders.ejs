@@ -1,26 +1,69 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/orders.css">
-    </head>
+<link rel="stylesheet" href="/css/orders.css">
+</head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
-        <main>
-            <% if (orders.length <= 0) { %>
-                <h1>Nothing there!</h1>
-            <% } else { %>
-                <ul class="orders">
-                    <% orders.forEach(order => { %>
-                        <li class="orders__item">
-                            <h1>Order - # <%= order._id %>
-                             - <a href="/orders/<%= order._id %>">Invoice</a></h1>
-                            <ul class="orders__products">
-                                <% order.products.forEach(p => { %>
-                                    <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>)</li>
-                                <% }); %>
-                            </ul>
-                        </li>
-                    <% }); %>
-                </ul>
-            <% } %>
-        </main>
-        <%- include('../includes/end.ejs') %>
+<body>
+
+<%- include('../includes/navigation.ejs') %>
+
+<main>
+
+  <% if (orders.length <= 0) { %>
+
+    <div class="centered">
+      <h2>No Orders Yet</h2>
+      <p>Your orders will appear here after checkout.</p>
+    </div>
+
+  <% } else { %>
+
+    <section class="orders-section">
+
+      <ul class="orders">
+
+        <% orders.forEach(order => { %>
+
+          <li class="orders__item">
+
+            <header class="orders__header">
+
+              <h2>
+                Order # <%= order._id %>
+              </h2>
+
+              <a
+                href="/orders/<%= order._id %>"
+                class="btn"
+                aria-label="Download invoice for order <%= order._id %>"
+              >
+                Invoice
+              </a>
+
+            </header>
+
+            <ul class="orders__products">
+
+              <% order.products.forEach(p => { %>
+
+                <li class="orders__products-item">
+                  <strong><%= p.product.title %></strong>
+                  &nbsp; (Qty: <%= p.quantity %>)
+                </li>
+
+              <% }); %>
+
+            </ul>
+
+          </li>
+
+        <% }); %>
+
+      </ul>
+
+    </section>
+
+  <% } %>
+
+</main>
+
+<%- include('../includes/end.ejs') %>

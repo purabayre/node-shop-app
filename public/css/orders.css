@@ -27,3 +27,48 @@
   border: 1px solid #00695c;
   color: #00695c;
 }
+
+/* -------- Orders UI Enhancements -------- */
+
+/* Smooth hover for order card */
+
+.orders__item {
+  border-radius: 6px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.orders__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve order title */
+
+.orders__item h1 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Product item improvements */
+
+.orders__products-item {
+  border-radius: 4px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Hover effect for products */
+
+.orders__products-item:hover {
+  background: #00695c;
+  color: white;
+}
+
+/* Better spacing between products */
+
+.orders__products {
+  margin-top: 0.5rem;
+}

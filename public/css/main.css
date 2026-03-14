@@ -284,3 +284,82 @@ form {
     width: 30rem;
   }
 }
+
+/* ---------------- UI IMPROVEMENTS (SAFE ADDITIONS) ---------------- */
+
+/* Smooth transitions for interactive elements */
+a,
+button,
+.btn,
+.card {
+  transition: all 0.25s ease;
+}
+
+/* Better card appearance */
+.card {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve product images */
+.card__image img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card__image img {
+  transform: scale(1.05);
+}
+
+/* Better buttons */
+.btn {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation hover animation */
+.main-header__item a {
+  position: relative;
+}
+
+.main-header__item a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background-color: #ffeb3b;
+  transition: width 0.3s;
+}
+
+.main-header__item a:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu animation improvement */
+.mobile-nav {
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Pagination improvement */
+.pagination a {
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  transform: translateY(-2px);
+}
+
+/* Slight background improvement */
+body {
+  background: #f5f7f9;
+}

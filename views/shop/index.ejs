@@ -3,62 +3,109 @@
 </head>
 
 <body>
-  <%- include('../includes/navigation.ejs') %>
 
-  <main>
+<%- include('../includes/navigation.ejs') %>
 
-    <% if (prods.length > 0) { %>
+<main>
+
+  <% if (prods.length > 0) { %>
+
+    <section class="products">
 
       <div class="grid">
+
         <% for (let product of prods) { %>
+
           <article class="card product-item">
-            
+
             <header class="card__header">
-              <h1 class="product__title"><%= product.title %></h1>
+              <h2 class="product__title">
+                <%= product.title %>
+              </h2>
             </header>
 
             <div class="card__image">
-              <img src="<%= product.imageUrl %>" 
-                   alt="<%= product.title %>">
+              <img
+                src="<%= product.imageUrl %>"
+                alt="<%= product.title %>"
+                loading="lazy"
+              >
             </div>
 
             <div class="card__content">
-              <h2 class="product__price">$<%= product.price %></h2>
+
+              <h3 class="product__price">
+                $<%= product.price %>
+              </h3>
+
               <p class="product__description">
-                <%= product.description %>
+                <%= product.description.length > 120 
+                      ? product.description.substring(0,120) + '...' 
+                      : product.description %>
               </p>
+
             </div>
 
             <div class="card__actions">
-              <a href="/products/<%= product._id %>" class="btn">
+
+              <a
+                href="/products/<%= product._id %>"
+                class="btn"
+                aria-label="View details for <%= product.title %>"
+              >
                 Details
               </a>
 
               <% if (isAuthenticated) { %>
                 <%- include('../includes/add-to-cart.ejs', { product: product }) %>
               <% } %>
+
             </div>
 
           </article>
+
         <% } %>
+
       </div>
 
-      <section class="pagination">
+    </section>
 
-        <% for (let i = 1; i <= lastPage; i++) { %>
-          <% if (i === currentPage) { %>
-            <a href="/?page=<%= i %>" class="active"><%= i %></a>
-          <% } else { %>
-            <a href="/?page=<%= i %>"><%= i %></a>
-          <% } %>
+    <section class="pagination">
+
+      <% for (let i = 1; i <= lastPage; i++) { %>
+
+        <% if (i === currentPage) { %>
+
+          <a
+            href="/?page=<%= i %>"
+            class="active"
+          >
+            <%= i %>
+          </a>
+
+        <% } else { %>
+
+          <a
+            href="/?page=<%= i %>"
+          >
+            <%= i %>
+          </a>
+
         <% } %>
 
-      </section>
+      <% } %>
 
-    <% } else { %>
-      <h1>No Products Found!</h1>
-    <% } %>
+    </section>
 
-  </main>
+  <% } else { %>
+
+    <div class="centered">
+      <h2>No Products Found</h2>
+      <p>Check back later for new items.</p>
+    </div>
+
+  <% } %>
+
+</main>
 
 <%- include('../includes/end.ejs') %>

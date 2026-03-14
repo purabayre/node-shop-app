@@ -59,3 +59,58 @@
   background: #4f46e5;
   transform: translateY(-2px);
 }
+
+/* Smooth animation for card */
+
+.checkout-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.checkout-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Better text spacing */
+
+.checkout-total span {
+  font-weight: 500;
+}
+
+/* Highlight total price */
+
+.checkout-total span:last-child {
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+/* Button animation improvement */
+
+.checkout-btn {
+  letter-spacing: 0.5px;
+}
+
+.checkout-btn:active {
+  transform: scale(0.98);
+}
+
+/* Subtle background animation */
+
+.checkout-page {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}

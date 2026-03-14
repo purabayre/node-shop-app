@@ -8,20 +8,29 @@
 
 <main class="checkout-page">
 
-  <div class="checkout-card">
+  <section class="checkout-card">
 
-    <h1 class="checkout-title">Checkout</h1>
+    <header class="checkout-header">
+      <h1 class="checkout-title">Checkout</h1>
+      <p class="checkout-subtitle">Complete your purchase securely</p>
+    </header>
 
     <div class="checkout-total">
       <span>Total Amount</span>
       <strong>$<%= totalSum %></strong>
     </div>
 
-    <button id="checkout-button" class="checkout-btn">
-       Pay Now!!
-    </button>
+    <div class="checkout-actions">
+      <button
+        id="checkout-button"
+        class="checkout-btn"
+        aria-label="Pay with Stripe"
+      >
+        Pay Now
+      </button>
+    </div>
 
-  </div>
+  </section>
 
 </main>
 
@@ -30,13 +39,13 @@
 <script>
   const stripe = Stripe('<%= stripePublicKey %>');
 
-  document
-    .getElementById('checkout-button')
-    .addEventListener('click', function () {
-      stripe.redirectToCheckout({
-        sessionId: '<%= sessionId %>',
-      });
+  const checkoutBtn = document.getElementById('checkout-button');
+
+  checkoutBtn.addEventListener('click', () => {
+    stripe.redirectToCheckout({
+      sessionId: '<%= sessionId %>'
     });
+  });
 </script>
 
 <%- include('../includes/end.ejs') %>

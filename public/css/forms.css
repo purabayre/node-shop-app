@@ -26,3 +26,44 @@
 .form-control textarea.invalid {
   border-color: red;
 }
+
+/* ---------------- Form UI Enhancements ---------------- */
+
+/* Better input padding */
+
+.form-control input,
+.form-control textarea {
+  padding: 0.4rem 0.5rem;
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Smooth focus effect */
+
+.form-control input:focus,
+.form-control textarea:focus {
+  box-shadow: 0 0 4px rgba(0, 105, 92, 0.3);
+}
+
+/* Label improvement */
+
+.form-control label {
+  font-weight: 600;
+  color: #444;
+}
+
+/* Invalid field styling improvement */
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+  background-color: #fff6f6;
+}
+
+/* Placeholder styling */
+
+.form-control input::placeholder,
+.form-control textarea::placeholder {
+  color: #999;
+  font-size: 0.9rem;
+}

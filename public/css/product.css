@@ -25,3 +25,53 @@
 .product__description {
   text-align: center;
 }
+
+/* -------- Product UI Enhancements -------- */
+
+/* Product card look */
+
+.product-item {
+  border-radius: 6px;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover animation */
+
+.product-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve product title */
+
+.product__title {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Highlight price */
+
+.product__price {
+  font-weight: 600;
+  color: #00695c;
+}
+
+/* Better description spacing */
+
+.product__description {
+  padding: 0 0.5rem;
+  color: #555;
+}
+
+/* Product image hover zoom */
+
+.card__image img {
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover .card__image img {
+  transform: scale(1.05);
+}

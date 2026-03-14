@@ -82,8 +82,8 @@ app.use(
     store: store,
   }),
 );
-app.use(csrfProtection);
 app.use(flash());
+app.use(csrfProtection);
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
@@ -135,7 +135,7 @@ mongoose
     // https
     //   .createServer({ key: privateKey, cert: certificate }, app)
     //   .listen(process.env.PORT || 3000);
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 5000;
 
     app.listen(PORT, () => {
       console.log('Server running');
